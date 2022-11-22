@@ -21,7 +21,8 @@ function sortearCor() {
   var legendaCorDaCaixa = document.getElementById('cor-na-caixa');
   var nomeCorSorteada = engine.cores[indexCorSorteada];
 
-  //legendaCorDaCaixa.innerText = nomeCorSorteada.toUpperCase();
+  legendaCorDaCaixa.innerText = nomeCorSorteada.toUpperCase();
+  legendaCorDaCaixa.hidden = true;
 
   return engine.hexadecimais[nomeCorSorteada];
 }
@@ -78,6 +79,8 @@ if (window.SpeechRecognition || window.webkitSpeechRecognition) {
   gravador.onresult = function(event) {
     transcricaoAudio = event.results[0][0].transcript.toUpperCase();
     respostaCorreta = document.getElementById('cor-na-caixa').innerText.toUpperCase();
+    console.log(transcricaoAudio);
+    console.log(respostaCorreta);
 
     if(transcricaoAudio ===  respostaCorreta) {
       atualizaPontuacao(1);
